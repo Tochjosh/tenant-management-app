@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include tenant_management *.css
+recursive-include tenant_management *.csv
+recursive-include tenant_management *.html
+recursive-include tenant_management *.ico
+recursive-include tenant_management *.js
+recursive-include tenant_management *.json
+recursive-include tenant_management *.md
+recursive-include tenant_management *.png
+recursive-include tenant_management *.py
+recursive-include tenant_management *.svg
+recursive-include tenant_management *.txt
+recursive-exclude tenant_management *.pyc
