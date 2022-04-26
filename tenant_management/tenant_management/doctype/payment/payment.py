@@ -4,12 +4,12 @@
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils import now
 
 
 class Payment(Document):
 
-    def before_submit(self):
-
+    def check_transaction_and_pay(self):
         if self.pay and self.balance > 0.0:
             if not self.amount_to_pay:
                 frappe.throw('Enter amount to be paid')
@@ -19,35 +19,32 @@ class Payment(Document):
 
             else:
                 self.balance = self.total_rent_amount - self.amount_to_pay
-
+                self.last_payment_date = now().split(' ')[0]
+                self.pay = False
         else:
             frappe.throw(_("You've completed your payment"))
 
-    def before_insert(self):
-
-        if self.pay and self.balance > 0.0:
-            if not self.amount_to_pay:
-                frappe.throw('Enter amount to be paid')
-
-            elif self.amount_to_pay > self.balance:
-                frappe.throw('Amount to pay in excess of balance')
-
-            self.balance = self.total_rent_amount - self.amount_to_pay
-
-        else:
-            frappe.throw(_("You've completed your payment"))
-
-
-        self.pay = False
-
-    def after_insert(self):
-
+    def update_house_status(self):
         if self.balance == 0.0:
             frappe.db.set_value('House', self.house, 'payment_status', 'paid')
         elif 0.0 < self.balance < self.rent:
             frappe.db.set_value('House', self.house, 'payment_status', 'partly_paid')
         else:
             frappe.db.set_value('House', self.house, 'payment_status', 'not_paid')
+
+    def before_insert(self):
+        self.balance = self.total_rent_amount
+        self.check_transaction_and_pay()
+
+    def after_insert(self):
+        self.update_house_status()
+
+    def on_update(self):
+        self.check_transaction_and_pay()
+
+    def after_update(self):
+        self.update_house_status()
+
 
 
         # email = frappe.db.get_value('Tenant', self.tenant, 'email')

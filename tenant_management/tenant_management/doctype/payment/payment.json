@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:tenant",
+ "autoname": "format:{tenant} payment for {house}",
  "creation": "2022-04-25 00:28:23.067429",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -13,7 +13,7 @@
   "flat",
   "total_rent_amount",
   "balance",
-  "payment_date",
+  "last_payment_date",
   "amount_to_pay",
   "pay"
  ],
@@ -36,17 +36,10 @@
    "read_only": 1
   },
   {
-   "fetch_from": "house.rent",
-   "fetch_if_empty": 1,
+   "default": "0.0",
    "fieldname": "balance",
    "fieldtype": "Currency",
    "label": "Balance",
-   "read_only": 1
-  },
-  {
-   "fieldname": "payment_date",
-   "fieldtype": "Date",
-   "label": "Last Payment Payment Date",
    "read_only": 1
   },
   {
@@ -82,15 +75,21 @@
    "fieldtype": "Data",
    "label": "Flat",
    "read_only": 1
+  },
+  {
+   "fieldname": "last_payment_date",
+   "fieldtype": "Data",
+   "label": "Last Payment Payment Date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-25 11:59:10.508360",
+ "modified": "2022-04-26 07:56:13.817456",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Payment",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

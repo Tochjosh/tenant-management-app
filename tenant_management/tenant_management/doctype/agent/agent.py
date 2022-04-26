@@ -14,8 +14,8 @@ class Agent(Document):
 
 	def before_insert(self):
 
-		email_exist = frappe.db.exists({"doctype": "Agent",
-										"email": self.email})
+		email_exist = frappe.db.exists({"doctype": "Agent","email": self.email})
+
 		if email_exist:
 			frappe.throw('A user with this email already exist')
 

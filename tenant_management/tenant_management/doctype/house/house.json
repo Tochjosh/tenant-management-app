@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:address",
+ "autoname": "format:{address}{block}{flat}",
  "creation": "2022-04-25 10:11:58.185897",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -42,13 +42,11 @@
    "unique": 1
   },
   {
-   "default": "NIL",
    "fieldname": "block",
    "fieldtype": "Data",
    "label": "Block"
   },
   {
-   "default": "NIL",
    "fieldname": "flat",
    "fieldtype": "Data",
    "label": "Flat"
@@ -89,11 +87,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-25 11:02:18.634191",
+ "modified": "2022-04-26 07:59:39.984950",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "House",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
