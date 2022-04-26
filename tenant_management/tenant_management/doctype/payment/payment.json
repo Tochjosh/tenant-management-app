@@ -11,7 +11,7 @@
   "house",
   "block",
   "flat",
-  "total_rent_amount",
+  "rent",
   "balance",
   "last_payment_date",
   "amount_to_pay",
@@ -26,14 +26,6 @@
    "options": "Tenant",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fetch_from": "house.rent",
-   "fieldname": "total_rent_amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Rent Amount",
-   "read_only": 1
   },
   {
    "default": "0.0",
@@ -81,11 +73,19 @@
    "fieldtype": "Data",
    "label": "Last Payment Payment Date",
    "read_only": 1
+  },
+  {
+   "fetch_from": "house.rent",
+   "fieldname": "rent",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rent",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-26 07:56:13.817456",
+ "modified": "2022-04-26 08:20:47.664040",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Payment",
