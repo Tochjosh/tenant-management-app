@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:address",
+ "creation": "2022-04-25 10:11:58.185897",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "landlord",
+  "agent",
+  "address",
+  "block",
+  "flat",
+  "tenant",
+  "rent",
+  "payment_status",
+  "occupancy_status",
+  "undergoing_work"
+ ],
+ "fields": [
+  {
+   "fieldname": "landlord",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Landlord",
+   "options": "Landlord",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "Agent"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "NIL",
+   "fieldname": "block",
+   "fieldtype": "Data",
+   "label": "Block"
+  },
+  {
+   "default": "NIL",
+   "fieldname": "flat",
+   "fieldtype": "Data",
+   "label": "Flat"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant"
+  },
+  {
+   "fieldname": "rent",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Not Paid\nPartly Paid\nPaid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "occupancy_status",
+   "fieldtype": "Select",
+   "label": "Occupancy Status",
+   "options": "Available\nOccupied\nOut Of Service",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "undergoing_work",
+   "fieldtype": "Check",
+   "label": "Undergoing Work"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-04-25 11:02:18.634191",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "House",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "House Agent",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "House Tenant",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Landlord",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

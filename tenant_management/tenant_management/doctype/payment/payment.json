@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:tenant",
+ "creation": "2022-04-25 00:28:23.067429",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tenant",
+  "house",
+  "block",
+  "flat",
+  "total_rent_amount",
+  "balance",
+  "payment_date",
+  "amount_to_pay",
+  "pay"
+ ],
+ "fields": [
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Tenant",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "house.rent",
+   "fieldname": "total_rent_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Rent Amount",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "house.rent",
+   "fetch_if_empty": 1,
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Last Payment Payment Date",
+   "read_only": 1
+  },
+  {
+   "default": "0.0",
+   "fieldname": "amount_to_pay",
+   "fieldtype": "Currency",
+   "label": "Amount To Pay"
+  },
+  {
+   "default": "0",
+   "fieldname": "pay",
+   "fieldtype": "Check",
+   "label": "Pay"
+  },
+  {
+   "fieldname": "house",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "House",
+   "options": "House",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "house_address.block",
+   "fieldname": "block",
+   "fieldtype": "Data",
+   "label": "Block",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "house_address.flat",
+   "fieldname": "flat",
+   "fieldtype": "Data",
+   "label": "Flat",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-04-25 11:59:10.508360",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Payment",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "House Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "House Tenant",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Landlord",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
