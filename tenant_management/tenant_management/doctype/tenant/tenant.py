@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Nwakaibeya Joshua and contributors
+# Copyright (c) 2022, Nwakaibeya Joshua and contributors
 # For license information, please see license.txt
 
 import frappe
