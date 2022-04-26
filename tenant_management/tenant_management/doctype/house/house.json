@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{address}{block}{flat}",
+ "autoname": "format:{address} &lt;Block-{block} Flat-{flat}&gt;",
  "creation": "2022-04-25 10:11:58.185897",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -13,10 +13,11 @@
   "block",
   "flat",
   "tenant",
-  "rent",
-  "payment_status",
+  "column_break_10",
+  "undergoing_work",
   "occupancy_status",
-  "undergoing_work"
+  "rent",
+  "payment_status"
  ],
  "fields": [
   {
@@ -42,11 +43,13 @@
    "unique": 1
   },
   {
+   "default": "NIL",
    "fieldname": "block",
    "fieldtype": "Data",
    "label": "Block"
   },
   {
+   "default": "NIL",
    "fieldname": "flat",
    "fieldtype": "Data",
    "label": "Flat"
@@ -65,6 +68,7 @@
    "reqd": 1
   },
   {
+   "bold": 1,
    "fieldname": "payment_status",
    "fieldtype": "Select",
    "label": "Payment Status",
@@ -72,6 +76,7 @@
    "read_only": 1
   },
   {
+   "bold": 1,
    "fieldname": "occupancy_status",
    "fieldtype": "Select",
    "label": "Occupancy Status",
@@ -83,11 +88,15 @@
    "fieldname": "undergoing_work",
    "fieldtype": "Check",
    "label": "Undergoing Work"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-26 07:59:39.984950",
+ "modified": "2022-04-26 09:55:17.371804",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "House",

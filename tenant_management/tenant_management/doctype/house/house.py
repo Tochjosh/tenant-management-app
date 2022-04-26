@@ -7,7 +7,8 @@ from frappe.model.document import Document
 
 class House(Document):
 
-    def on_update(self):
+
+    def update_status(self):
         if self.undergoing_work:
             self.occupancy_status = 'Out Of Service'
         else:
@@ -15,13 +16,9 @@ class House(Document):
                 self.occupancy_status = 'Occupied'
             else:
                 self.occupancy_status = 'Available'
+
+    def on_update(self):
+       self.update_status()
 
     def before_insert(self):
-
-        if self.undergoing_work:
-            self.occupancy_status = 'Out Of Service'
-        else:
-            if self.tenant:
-                self.occupancy_status = 'Occupied'
-            else:
-                self.occupancy_status = 'Available'
+        self.update_status()

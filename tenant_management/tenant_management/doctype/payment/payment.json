@@ -28,7 +28,7 @@
    "unique": 1
   },
   {
-   "default": "0.0",
+   "fetch_from": "house.rent",
    "fieldname": "balance",
    "fieldtype": "Currency",
    "label": "Balance",
@@ -41,10 +41,10 @@
    "label": "Amount To Pay"
   },
   {
-   "default": "0",
    "fieldname": "pay",
-   "fieldtype": "Check",
-   "label": "Pay"
+   "fieldtype": "Select",
+   "label": "Pay?",
+   "options": "No\nYes"
   },
   {
    "fieldname": "house",
@@ -71,7 +71,7 @@
   {
    "fieldname": "last_payment_date",
    "fieldtype": "Data",
-   "label": "Last Payment Payment Date",
+   "label": "Last Payment Date",
    "read_only": 1
   },
   {
@@ -85,7 +85,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-26 08:20:47.664040",
+ "modified": "2022-04-26 09:24:19.809242",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Payment",
