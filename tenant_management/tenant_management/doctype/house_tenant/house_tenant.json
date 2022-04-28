@@ -2,34 +2,28 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:full_name",
- "creation": "2022-04-24 18:34:32.630083",
+ "creation": "2022-04-28 10:17:23.062290",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "image",
-  "personal_details",
   "full_name",
   "phone",
   "email",
   "date_of_birth",
-  "age",
-  "gender"
+  "marital_status",
+  "occupation",
+  "old_address",
+  "id"
  ],
  "fields": [
   {
    "fieldname": "image",
-   "fieldtype": "Attach Image",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
    "label": "Image",
    "reqd": 1
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Full Name",
-   "reqd": 1,
-   "unique": 1
   },
   {
    "fieldname": "phone",
@@ -48,37 +42,50 @@
    "reqd": 1
   },
   {
-   "fieldname": "personal_details",
-   "fieldtype": "Heading",
-   "label": "Personal Details"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "label": "Gender",
-   "options": "Male\nFemale\nOthers",
-   "reqd": 1
-  },
-  {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of Birth",
+   "label": "Date Of Birth",
    "reqd": 1
   },
   {
-   "fieldname": "age",
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "Single\nMarried",
+   "reqd": 1
+  },
+  {
+   "fieldname": "occupation",
    "fieldtype": "Data",
-   "label": "Age",
-   "read_only": 1
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "old_address",
+   "fieldtype": "Data",
+   "label": "Old Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
- "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-28 07:05:27.083132",
+ "modified": "2022-04-28 10:26:23.127196",
  "modified_by": "Administrator",
  "module": "Tenant Management",
- "name": "Agent",
+ "name": "House Tenant",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -101,6 +108,15 @@
    "read": 1,
    "report": 1,
    "role": "House Agent",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "House Tenant",
    "share": 1,
    "write": 1
   },
@@ -111,15 +127,6 @@
    "read": 1,
    "report": 1,
    "role": "Landlord",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "House Tenant",
    "share": 1
   }
  ],

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{address} &lt;Block-{block} Flat-{flat}&gt;",
+ "autoname": "format:{address} (Block-{block} Flat-{flat})",
  "creation": "2022-04-25 10:11:58.185897",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -17,7 +17,8 @@
   "undergoing_work",
   "occupancy_status",
   "rent",
-  "payment_status"
+  "payment_status",
+  "balance"
  ],
  "fields": [
   {
@@ -58,7 +59,7 @@
    "fieldname": "tenant",
    "fieldtype": "Link",
    "label": "Tenant",
-   "options": "Tenant"
+   "options": "House Tenant"
   },
   {
    "fieldname": "rent",
@@ -78,9 +79,8 @@
   {
    "bold": 1,
    "fieldname": "occupancy_status",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Occupancy Status",
-   "options": "Available\nOccupied\nOut Of Service",
    "read_only": 1
   },
   {
@@ -92,11 +92,17 @@
   {
    "fieldname": "column_break_10",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "permlevel": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-26 09:55:17.371804",
+ "modified": "2022-04-28 10:20:14.773086",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "House",

@@ -1,11 +1,12 @@
 # Copyright (c) 2022, Nwakaibeya Joshua and contributors
 # For license information, please see license.txt
+
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import (validate_phone_number, validate_email_address)
+from frappe.utils import (validate_phone_number, validate_email_address, random_string, pretty_date)
 
-class Agent(Document):
+class HouseTenant(Document):
 	def validate(self):
 		validate_phone_number(self.phone, throw=True)
 		if self.email:
@@ -14,8 +15,7 @@ class Agent(Document):
 
 	def before_insert(self):
 
-		email_exist = frappe.db.exists({"doctype": "Agent","email": self.email})
-
+		email_exist = frappe.db.exists({"doctype": "House Tenant", "email": self.email})
 		if email_exist:
 			frappe.throw('A user with this email already exist')
 
@@ -23,9 +23,9 @@ class Agent(Document):
 	def after_insert(self):
 
 		message = _("""<h3>Welcome</h3>
-	                      <p>You've been successfully signed up as a house agent on our platform</p>
-	                      <p>We received a lot of applications for this position, but your profile stood out.</p><br>
-	                      <p>Welcome to the family.</p>""")
+	                          <p>This is to let you know that we have created a profile for you in our organization.</p>
+	                          <p>Thank you for trusting us with your property needs.</p><br>
+	                          <p>Welcome to the family.</p>""")
 
 		subject = f"Welcome onboard {self.full_name}!"
 
@@ -39,3 +39,4 @@ class Agent(Document):
 		}
 
 		frappe.sendmail(**email_args)
+

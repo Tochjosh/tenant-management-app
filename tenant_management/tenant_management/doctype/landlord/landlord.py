@@ -16,8 +16,7 @@ class Landlord(Document):
 
 	def before_insert(self):
 
-		email_exist = frappe.db.exists({"doctype": "Tenant",
-										"email": self.email})
+		email_exist = frappe.db.exists({"doctype": "Landlord", "email": self.email})
 		if email_exist:
 			frappe.throw('A user with this email already exist')
 
@@ -25,8 +24,8 @@ class Landlord(Document):
 	def after_insert(self):
 
 		message = _("""<h3>Welcome</h3>
-	                          <p>This is to let you know that we have created a profile for you in our organization.</p><br>
-	                          <p>Thank you for trusting us with your housing need.</p><br>
+	                          <p>This is to let you know that we have created a profile for you in our organization.</p>
+	                          <p>Thank you for trusting us with your property.</p><br>
 	                          <p>Welcome to the family.</p>""")
 
 		subject = f"Welcome onboard {self.full_name}!"

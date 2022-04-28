@@ -11,14 +11,12 @@
   "full_name",
   "phone",
   "email",
-  "date_of_birth",
-  "age"
+  "date_of_birth"
  ],
  "fields": [
   {
    "fieldname": "image",
-   "fieldtype": "Attach",
-   "in_list_view": 1,
+   "fieldtype": "Attach Image",
    "label": "Image",
    "reqd": 1
   },
@@ -51,17 +49,12 @@
    "fieldtype": "Date",
    "label": "Date Of Birth",
    "reqd": 1
-  },
-  {
-   "fieldname": "age",
-   "fieldtype": "Data",
-   "label": "Age",
-   "read_only": 1
   }
  ],
+ "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-25 11:07:01.687331",
+ "modified": "2022-04-28 07:04:16.478603",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Landlord",
